@@ -1,6 +1,3 @@
-
-package Java.JavaCodes.project.Calculator;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -15,7 +12,8 @@ public class Calculator implements ActionListener {
     JButton factButton, sqrtButton, sqrButton, cubeButton, cubeRootButton;
     JPanel panel;
 
-    Font myFont = new Font("Monotype cursiva", Font.BOLD, 30);
+    // Font myFont = new Font("Arial", Font.BOLD, 30);
+    Font myFont = new Font("Arial", Font.PLAIN, 18);
 
     double operand1 = 0, operand2 = 0, result = 0;
     char operator;
@@ -23,11 +21,11 @@ public class Calculator implements ActionListener {
     Calculator() {
         frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 800);
+        frame.setSize(535, 600);
         frame.setLayout(null);
 
         displayField = new JTextField();
-        displayField.setBounds(50, 40, 500, 50);
+        displayField.setBounds(50, 40, 420, 80);
         displayField.setFont(myFont);
         displayField.setEditable(false);
         frame.add(displayField);
@@ -41,10 +39,10 @@ public class Calculator implements ActionListener {
         delButton = new JButton("Del");
         clrButton = new JButton("Clr");
         factButton = new JButton("!"); // Factorial
-        sqrtButton = new JButton("_/"); // Square root
+        sqrtButton = new JButton("sR"); // Square root
         sqrButton = new JButton("²"); // Square
         cubeButton = new JButton("³"); // Cube
-        cubeRootButton = new JButton("CR"); // Cube root
+        cubeRootButton = new JButton("cR"); // Cube root
 
         functionButtons[0] = addButton;
         functionButtons[1] = subButton;
@@ -73,11 +71,12 @@ public class Calculator implements ActionListener {
             numberButtons[i].setFocusable(false);
         }
 
-        delButton.setBounds(50, 430, 145, 50);
-        clrButton.setBounds(205, 430, 145, 50);
+        delButton.setBounds(50, 480, 150, 50);
+        clrButton.setBounds(205, 480, 150, 50);
+        equButton.setBounds(360, 480, 100,50);
 
         panel = new JPanel();
-        panel.setBounds(50, 100, 300, 300);
+        panel.setBounds(50, 160, 420, 300);
         panel.setLayout(new GridLayout(6, 4, 10, 10)); // Adjusted layout to fit all buttons
 
         panel.add(numberButtons[1]);
@@ -94,9 +93,8 @@ public class Calculator implements ActionListener {
         panel.add(mulButton);
         panel.add(decButton);
         panel.add(numberButtons[0]);
-        panel.add(equButton);
-        panel.add(divButton);
         panel.add(factButton);
+        panel.add(divButton);
         panel.add(sqrtButton);
         panel.add(sqrButton);
         panel.add(cubeButton);
@@ -105,6 +103,7 @@ public class Calculator implements ActionListener {
         frame.add(panel);
         frame.add(delButton);
         frame.add(clrButton);
+        frame.add(equButton);
         frame.setVisible(true);
     }
 
